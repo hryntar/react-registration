@@ -9,9 +9,7 @@ interface AuthDataType {
 
 interface IAuthContext {
    auth: AuthDataType;
-   setAuth: Dispatch<SetStateAction<AuthDataType>>;
-   persist: boolean;
-   setPersist: Dispatch<SetStateAction<boolean>>;
+   setAuth: Dispatch<SetStateAction<AuthDataType>>; 
 }
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -19,9 +17,7 @@ export const authInitialState: AuthDataType = { user: "", pwd: "", roles: [], ac
 
 const AuthContext = createContext<IAuthContext>({
    auth: authInitialState,
-   setAuth: () => {},
-   persist: false,
-   setPersist: () => {},
+   setAuth: () => {}, 
 });
 
 interface AuthProviderProps {
@@ -29,10 +25,9 @@ interface AuthProviderProps {
 }
 
 export const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
-   const [auth, setAuth] = useState<AuthDataType>(authInitialState);
-   const [persist, setPersist] = useState(JSON.parse(localStorage.getItem("persist")!) || false);
+   const [auth, setAuth] = useState<AuthDataType>(authInitialState); 
 
-   return <AuthContext.Provider value={{ auth, setAuth, persist, setPersist }}>{children}</AuthContext.Provider>;
+   return <AuthContext.Provider value={{ auth, setAuth}}>{children}</AuthContext.Provider>;
 };
 
 export default AuthContext;
