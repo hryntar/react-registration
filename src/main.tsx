@@ -7,7 +7,7 @@ import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
    <React.StrictMode>
-      <BrowserRouter>
+      <BrowserRouter basename="/react-registration">
          <AuthProvider>
             <Routes>
                <Route path="/*" element={<App />}></Route>
