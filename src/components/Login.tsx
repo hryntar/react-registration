@@ -77,9 +77,7 @@ const Login: FC = () => {
                type="text"
                id="username"
                ref={userRef}
-               autoComplete="off"
-               // onChange={(e) => setUser(e.target.value)}
-               // value={user}
+               autoComplete="off" 
                {...userAttribs}
                required
             />
